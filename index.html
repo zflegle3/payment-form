@@ -49,6 +49,47 @@
 
   </div>
 
-  <div class="container-b"></div>
+  <div class="container-b">
+    <form id="card-form">
+
+      <div class="input-item">
+        <label for="name">CARDHOLDER NAME</label>
+        <input type="text" id="name" name="name" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+        <p id="name-err" class="error"></p>
+      </div>
+
+      <div class="input-item">
+        <label for="ccn">CARD NUMBER:</label>
+        <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
+        <p id="num-err" class="error"></p>
+      </div>
+
+      <div> 
+
+        <div class="input-items-multiple">
+
+          <div class="label-container">
+            <label class="exp-label" for="month">EXP. DATE (MM/YY)</label>
+            <label class="cvc-label" for="cvc">CVC</label>
+          </div>
+
+          <div class="input-container">
+            <input id="month" type="number" inputmode="numeric"  autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
+            <input id="year" type="number" inputmode="numeric"  autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
+            <input id="cvc" type="number" inputmode="numeric"  autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
+          </div>
+
+          <div class="error-container">
+            <p id="exp-err" class="error"></p>
+            <p id="exp-err" class="error"></p>
+          </div>
+        </div>
+
+      </div>
+
+      <button>Confirm</button>
+
+    </form>
+  </div>
 </body>
 </html>
