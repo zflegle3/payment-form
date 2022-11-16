@@ -25,7 +25,7 @@
   <div class="container-a">
 
     <div class="card-back">
-      <p class="card-cvc">123</p>
+      <p id="card-cvc">000</p>
     </div>
 
     <div class="card-front">
@@ -35,15 +35,17 @@
           <path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/>
         </svg>
       </div>
-      <div class="card-number">
-        <p>9591</p>
-        <p>6489</p>
+      <div class="card-num">
+        <p id="card-num">0000 0000 0000 0000</p>
+        <!-- <p>0000</p>
         <p>6389</p>
-        <p>1011</p>
+        <p>1011</p> -->
       </div>
       <div class="card-info">
-        <p>FELICIA LEIRE</p>
-        <p>09/26</p>
+        <p id="card-name" class="card-name">JANE APPLESEED</p>
+        <p id="card-month">00</p>
+        <p>/</p>
+        <p id="card-year">00</p>
       </div>
     </div>
 
@@ -54,13 +56,13 @@
 
       <div class="input-item">
         <label for="name">CARDHOLDER NAME</label>
-        <input type="text" id="name" name="name" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+        <input type="text" id="name-in" name="name" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
         <p id="name-err" class="error"></p>
       </div>
 
       <div class="input-item">
         <label for="ccn">CARD NUMBER:</label>
-        <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
+        <input id="ccn-in" name="ccn" type="number" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
         <p id="num-err" class="error"></p>
       </div>
 
@@ -74,9 +76,9 @@
           </div>
 
           <div class="input-container">
-            <input id="month" type="number" inputmode="numeric"  autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
-            <input id="year" type="number" inputmode="numeric"  autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
-            <input id="cvc" type="number" inputmode="numeric"  autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
+            <input id="month-in" type="number" inputmode="numeric"  autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
+            <input id="year-in" type="number" inputmode="numeric"  autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
+            <input id="cvc-in" type="number" inputmode="numeric"  autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
           </div>
 
           <div class="error-container">
@@ -87,7 +89,7 @@
 
       </div>
 
-      <button>Confirm</button>
+      <button id="submit">Confirm</button>
 
     </form>
   </div>
