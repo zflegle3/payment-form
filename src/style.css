@@ -119,7 +119,7 @@ body {
     width: 100%;
 }
 
-.card-cvc {
+#card-cvc {
     width: 80%;
     /* border: 1px solid orange; */
     text-align: right;
@@ -173,7 +173,7 @@ body {
     transform: scale(0.65);
 }
 
-.card-number{
+.card-num{
     grid-area: 3/1/4/2;
     display: flex;
     justify-content: flex-start;
@@ -182,7 +182,7 @@ body {
     padding: 0%;
 }
 
-.card-number p {
+.card-num p {
     /* font-size: 3rem; */
     font-size: clamp(1.5rem, 4.8vw, 3rem);
     color: var(--text-wt);
@@ -192,7 +192,7 @@ body {
 .card-info {
     grid-area: 4/1/5/2;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0%;
 }
@@ -202,6 +202,10 @@ body {
     font-size: clamp(1rem, 3.2vw - 0.2rem, 1.8rem);
     color: var(--text-wt);
     letter-spacing: 0.1rem;
+}
+
+.card-info p:nth-child(1) {
+    flex-grow: 1;
 }
 
 
@@ -245,9 +249,14 @@ body {
     width: 100%;
     font-size: 1.8rem;
     padding: 1rem 1.5rem;
-    color: var(--text-grey-b);
+    color: var(--text-dark);
     border-radius: 0.75rem;
     border: 1px solid var(--text-grey-a);
+}
+
+.input-item input:focus-visible {
+    outline: none;
+    border: 1px solid var(--text-grey-b);
 }
 
 ::placeholder {
@@ -294,22 +303,27 @@ body {
 .input-container input {
     font-size: 1.8rem;
     padding: 1rem 1.5rem;
-    color: var(--text-grey-b);
+    color: var(--text-dark);
     border-radius: 0.75rem;
     border: 1px solid var(--text-grey-a);
 }
 
-#month {
+.input-container input:focus-visible {
+    outline: none;
+    border: 1px solid var(--text-grey-b);
+}
+
+#month-in {
  /* flex-grow: 1; */
     width: 25%;
 }
 
-#year {
+#year-in {
 /* flex-grow: 1; */
     width: 25%;
 }
 
-#cvc {
+#cvc-in {
     /* flex-grow: 2; */
     width: 50%;
 }
