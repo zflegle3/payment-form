@@ -1,0 +1,204 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+
+
+    --text-lt: #ffffff;
+}
+
+
+body {
+  background-image: url("./images//bg-main-mobile.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.container-a {
+    position: relative;
+    /* border: 1px solid red; */
+    width: 100%;
+    /* height: 30%; */
+
+    /* display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr); */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.card-back {
+    /* grid-area: 1/3/7/13; */
+    background-image: url(./images//bg-card-back.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* position: absolute;
+    top: 0rem;
+    right: 0rem; */
+    width: 85%;
+    max-width: 50rem;
+    aspect-ratio: 1.8;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    /* display: grid;
+    grid-template-rows: repeat(7, 1fr) ;
+    grid-template-columns: [first] 1rem ;
+    padding: 0rem 3rem; */
+}
+
+.card-back img {
+    top: 0rem;
+    left: 0rem;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+}
+
+.card-cvc {
+    width: 80%;
+    /* border: 1px solid orange; */
+    text-align: right;
+    /* font-size: 1.2rem; */
+    font-size: clamp(1rem, 3.2vw - 0.2rem, 1.8rem);
+    letter-spacing: 0.1rem;
+    padding: 0.5rem;
+    color: var(--text-lt);
+}
+
+
+.card-front{
+    position: absolute;
+    top: 56%;
+    left: 0rem;
+    aspect-ratio: 1.8;
+    width: 85%;
+    max-width: 50rem;
+    /* grid-area: 1/3/7/13; */
+    background-image: url(./images//bg-card-front.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 1.8;
+    padding: 5%;
+
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: [one] 1fr;
+}
+
+.card-front img {
+    width: 100%;
+}
+
+.container-b {
+    /* border: 1px solid red; */
+    width: 100%;
+    flex-grow: 1;
+}
+
+.card-logo {
+    grid-area: 1/1/2/2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 3rem;
+    aspect-ratio: 1.85;
+}
+
+.card-logo svg {
+    /* height: 100%;
+    width: 100%; */
+    /* padding-left: 1rem; */
+    transform: scale(0.65);
+}
+
+.card-number{
+    grid-area: 3/1/4/2;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    align-items: center;
+    padding: 0%;
+}
+
+.card-number p {
+    /* font-size: 3rem; */
+    font-size: clamp(1.5rem, 4.8vw, 3rem);
+    color: var(--text-lt);
+    letter-spacing: 0.1rem;
+}
+
+.card-info {
+    grid-area: 4/1/5/2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%;
+}
+
+.card-info p {
+    font-size: 1rem;
+    font-size: clamp(1rem, 3.2vw - 0.2rem, 1.8rem);
+    color: var(--text-lt);
+    letter-spacing: 0.1rem;
+}
