@@ -44,9 +44,15 @@ table {
     box-sizing: border-box;
     font-size: 10px;
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
 
 
-    --text-lt: #ffffff;
+    --text-wt: hsl(0, 0%, 100%);
+    --text-grey-a: hsl(270, 3%, 87%);
+    --text-grey-b: hsl(279, 6%, 55%);
+    --text-dark: hsl(278, 68%, 11%);
+    --err-red: hsl(0, 100%, 66%);
+
 }
 
 
@@ -56,7 +62,7 @@ body {
   background-repeat: no-repeat;
   background-position: top;
 
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 
   display: flex;
@@ -121,7 +127,7 @@ body {
     font-size: clamp(1rem, 3.2vw - 0.2rem, 1.8rem);
     letter-spacing: 0.1rem;
     padding: 0.5rem;
-    color: var(--text-lt);
+    color: var(--text-wt);
 }
 
 
@@ -149,11 +155,6 @@ body {
     width: 100%;
 }
 
-.container-b {
-    /* border: 1px solid red; */
-    width: 100%;
-    flex-grow: 1;
-}
 
 .card-logo {
     grid-area: 1/1/2/2;
@@ -184,7 +185,7 @@ body {
 .card-number p {
     /* font-size: 3rem; */
     font-size: clamp(1.5rem, 4.8vw, 3rem);
-    color: var(--text-lt);
+    color: var(--text-wt);
     letter-spacing: 0.1rem;
 }
 
@@ -199,6 +200,151 @@ body {
 .card-info p {
     font-size: 1rem;
     font-size: clamp(1rem, 3.2vw - 0.2rem, 1.8rem);
-    color: var(--text-lt);
+    color: var(--text-wt);
     letter-spacing: 0.1rem;
 }
+
+
+
+
+.container-b {
+    position: relative;
+    /* border: 1px solid red; */
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0rem 0.5rem;
+}
+
+#card-form {
+    width: 100%;
+    margin-top: 12rem;
+}
+
+
+.input-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+}
+
+.input-item label {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.input-item input {
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 1rem 1.5rem;
+    color: var(--text-grey-b);
+    border-radius: 0.75rem;
+    border: 1px solid var(--text-grey-a);
+}
+
+::placeholder {
+    color: var(--text-grey-a);
+}
+
+
+.input-items-multipls {
+    width: 100%;
+}
+
+.label-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: 2rem;
+}
+
+.label-container label {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.exp-label {
+    width: 50%;
+}
+
+.cvc-label {
+    width: 50%;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-container input {
+    font-size: 1.8rem;
+    padding: 1rem 1.5rem;
+    color: var(--text-grey-b);
+    border-radius: 0.75rem;
+    border: 1px solid var(--text-grey-a);
+}
+
+#month {
+ /* flex-grow: 1; */
+    width: 25%;
+}
+
+#year {
+/* flex-grow: 1; */
+    width: 25%;
+}
+
+#cvc {
+    /* flex-grow: 2; */
+    width: 50%;
+}
+
+button {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-wt);
+    font-size: 1.8rem;
+    background-color: var(--text-dark);
+    border-radius: 0.75rem;
+    letter-spacing: 0.1rem;
+    border: none;
+}
+
+
+#name-err, #num-err {
+    font-size: 1rem;
+    color: var(--err-red);
+    margin-top: 1rem;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.error-container p {
+    width: 50%;
+    margin-top: 1rem;
+    color: var(--err-red);
+}
+
