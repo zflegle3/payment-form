@@ -57,19 +57,21 @@ table {
 
 
 body {
-  background-image: url("./images//bg-main-mobile.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
+    position: relative;
+    background-image: url("./images//bg-main-mobile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 
-  min-height: 100vh;
-  width: 100vw;
+    
+    min-height: 100vh;
+    width: 100vw;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
 }
 
 .container-a {
@@ -397,4 +399,122 @@ button {
 .btn-reset {
     margin-top: 5rem;
 }
+
+
+@media only screen and (min-width: 840px) {
+
+    body {
+        height: 100vh;
+        background-image: url("./images//bg-main-desktop.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10% 10%;
+        gap: 5%
+    }
+
+    .container-a {
+        position: relative;
+        width: clamp(36rem, 50%, 52.5rem);
+        /* min-width: 36rem; */
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        max-height: 500rem;
+        aspect-ratio: 1;
+    }
+
+    .container-b {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        max-height: 50rem;
+    }
+
+    #card-form {
+        max-width: 35rem;
+        margin-top: 0rem;
+    }
+
+    .card-front {
+        position: absolute;
+        left: 0rem;
+        top: 0%;
+    }
+
+    .card-front{
+        position: absolute;
+        left: 0rem;
+        top: 0%;
+        aspect-ratio: 1.8;
+        width: 85%;
+        /* max-width: 45rem; */
+
+        background-image: url(./images//bg-card-front.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        aspect-ratio: 1.8;
+        padding: 5%;
+    
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: [one] 1fr;
+    }
+
+    .card-num p {
+        font-size: clamp(1.5rem,  -0.56rem + 2.45vw, 3rem);
+    }
+
+    .card-info p {
+        font-size: clamp(0.8rem, -0.16rem + 1.15vw, 1.5rem);
+    }
+    
+    .card-back {
+        position: absolute;
+        right: 0rem;
+        bottom: 0%;
+        background-image: url(./images//bg-card-back.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    
+        width: 85%;
+        /* max-width: 45rem; */
+        aspect-ratio: 1.8;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-back img {
+        top: 0rem;
+        left: 0rem;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+    }
+    
+    #card-cvc {
+        font-size: clamp(0.8rem, -0.16rem + 1.15vw, 1.5rem);
+    }
+
+
+
+
+
+
+  }
 
