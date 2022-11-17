@@ -209,8 +209,6 @@ body {
 }
 
 
-
-
 .container-b {
     position: relative;
     /* border: 1px solid red; */
@@ -225,7 +223,7 @@ body {
 
 #card-form {
     width: 100%;
-    margin-top: 12rem;
+    margin-top: 40%;
 }
 
 
@@ -252,6 +250,10 @@ body {
     color: var(--text-dark);
     border-radius: 0.75rem;
     border: 1px solid var(--text-grey-a);
+}
+
+.input-item input.invalid {
+    border: 1px solid var(--err-red);
 }
 
 .input-item input:focus-visible {
@@ -308,6 +310,10 @@ body {
     border: 1px solid var(--text-grey-a);
 }
 
+.input-container input.invalid {
+    border: 1px solid var(--err-red);
+}
+
 .input-container input:focus-visible {
     outline: none;
     border: 1px solid var(--text-grey-b);
@@ -360,5 +366,35 @@ button {
     width: 50%;
     margin-top: 1rem;
     color: var(--err-red);
+}
+
+
+.container-complete {
+    margin-top: 40%;
+    margin-bottom: 4rem;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.complete-title {
+    font-size: 2.6rem;
+    letter-spacing: 0.3rem;
+    color: var(--text-dark);
+    margin-top: 3rem;
+}
+
+.complete-title-sub {
+    font-size: 1.8rem;
+    /* letter-spacing: 0.1rem; */
+    color: var(--text-grey-b);
+    margin-top: 2rem;
+}
+
+.btn-reset {
+    margin-top: 5rem;
 }
 

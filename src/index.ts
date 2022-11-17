@@ -1,11 +1,6 @@
 import './style.css';
 
-
-console.log("Typescript is neat");
-
-const domInteract = {}
-
-
+import Icon from './images/icon-complete.svg';
 
 class PaymentInfo {
     name: string = "";
@@ -21,45 +16,45 @@ class PaymentInfo {
         
         switch(inType) {
             case "name-in":
-                if (inVal.length < 1) { //reset display value
+                //set variable
+                this.name = inVal;
+                //Update display element
+                if (inVal.length < 1) {
                     document.getElementById("card-name").innerText = "JANE APPLESEED";
                 } else {
-                    //set name variable
-                    this.name = inVal;
-                    //Update display element
                     document.getElementById("card-name").innerText = inVal.toUpperCase();
                 }
               break;
             case "ccn-in":
+                this.ccn = inVal;
                 if (inVal.length < 1) {
                     document.getElementById("card-num").innerText = "0000 0000 0000 0000";
                 } else if (inVal.length < 17)  {
-                    this.ccn = inVal;
                     let numOut = this.formatNum(this.ccn);
                     document.getElementById("card-num").innerText = numOut;
                 }
               break;
             case "month-in":
+                this.expMo = inVal;
                 if (inVal.length < 1) {
                     document.getElementById("card-month").innerText = "00";
                 } else {
-                    this.expMo = inVal;
                     document.getElementById("card-month").innerText = inVal;
                 }
             break;
             case "year-in":
+                this.expYr = inVal;
                 if (inVal.length < 1) {
                     document.getElementById("card-year").innerText = "00";
                 } else {
-                    this.expYr = inVal;
                     document.getElementById("card-year").innerText = inVal;
                 }
                 break;
             case "cvc-in":
+                this.cvc = inVal;
                 if (inVal.length < 1) { 
                     document.getElementById("card-cvc").innerText = "000";
                 } else {
-                    this.cvc = inVal;
                     document.getElementById("card-cvc").innerText = inVal;
                 }
                 break;
@@ -79,37 +74,141 @@ class PaymentInfo {
 
         let nameValid = this.validateName(this.name);
         let numValid = this.validateNum(this.ccn);
-        let dateValid = this.validateExp(this.expMo, this.expYr);
+        let monthValid = this.validateMonth(this.expMo);
+        let dateValid = this.validateYear(this.expYr);
         let cvcValid = this.validateCvc(this.cvc);
 
-        if (nameValid && numValid && dateValid && cvcValid) {
+        if (nameValid && numValid && monthValid && dateValid && cvcValid) {
             console.log("ALL VALID UPDATE DOM");
+            this.updateDom();
         } else {
             console.log("INVALID INPUTS");
         }
     }
 
     validateName = (name: string): boolean => {
-        if (name.length >0) {
+        if (name.length > 0) {
             document.getElementById("name-err").innerText = "";
+            document.getElementById("name-in").classList.remove("invalid");
             return true;
         } else {
             document.getElementById("name-err").innerText = "Can't be blank";
+            document.getElementById("name-in").classList.add("invalid");
             return false
         }
     }
 
     validateNum = (num: string): boolean => {
-        return true;
+        if (num.length > 0) {
+            if (num.match(/^[0-9]*$/)) {
+                document.getElementById("num-err").innerText = "";
+                document.getElementById("ccn-in").classList.remove("invalid");
+                return true;
+            } else {
+                document.getElementById("num-err").innerText = "Wrong format, numbers only";
+                document.getElementById("ccn-in").classList.add("invalid");
+                return false
+            }
+        } else {
+            document.getElementById("num-err").innerText = "Can't be blank";
+            document.getElementById("ccn-in").classList.add("invalid");
+            return false
+        }
     }
 
-    validateExp = (month: string, year: string): boolean => {
-        return true;
+    validateMonth = (month: string,): boolean => {
+        if (month.length > 0) {
+            if (month.match(/^[0-9]*$/)) {
+                document.getElementById("exp-err").innerText = "";
+                document.getElementById("month-in").classList.remove("invalid");
+                return true;
+            } else {
+                document.getElementById("num-err").innerText = "Wrong format, numbers only";
+                document.getElementById("month-in").classList.add("invalid");
+                return false
+            }
+        } else {
+            document.getElementById("exp-err").innerText = "Can't be blank";
+            document.getElementById("month-in").classList.add("invalid");
+            return false
+        }
+    }
+
+    validateYear = (year: string,): boolean => {
+        if (year.length > 0) {
+            if (year.match(/^[0-9]*$/)) {
+                document.getElementById("exp-err").innerText = "";
+                document.getElementById("year-in").classList.remove("invalid");
+                return true;
+            } else {
+                document.getElementById("num-err").innerText = "Wrong format, numbers only";
+                document.getElementById("year-in").classList.add("invalid");
+                return false
+            }
+        } else {
+            document.getElementById("exp-err").innerText = "Can't be blank";
+            document.getElementById("year-in").classList.add("invalid");
+            return false
+        }
     }
 
     validateCvc = (cvc: string): boolean => {
-        return true;
+        if (cvc.length > 0) {
+            if (cvc.match(/^[0-9]*$/)) {
+                document.getElementById("cvc-err").innerText = "";
+                document.getElementById("cvc-in").classList.remove("invalid");
+                return true;
+            } else {
+                document.getElementById("cvc-err").innerText = "Wrong format, numbers only";
+                document.getElementById("cvc-in").classList.add("invalid");
+                return false
+            }
+        } else {
+            document.getElementById("cvc-err").innerText = "Can't be blank";
+            document.getElementById("cvc-in").classList.add("invalid");
+            return false
+        }
     }
+
+    updateDom = (): void => {
+        //remove form
+        document.getElementById("card-form").remove();
+        //get container b
+        let containerEl = document.querySelector(".container-b");
+        //create container
+        const containerElNew = document.createElement("div");
+        containerElNew.className = "container-complete";
+        //create Svg
+        const svgEl = document.createElement("img");
+        svgEl.src = Icon;
+        //create h1
+        const titleEl = document.createElement("h1");
+        titleEl.innerText = "THANK YOU!"
+        titleEl.className = "complete-title";
+        console.log(titleEl);
+        //create p
+        const subTitleEl = document.createElement("p");
+        subTitleEl.innerText = "We've added your card details"
+        subTitleEl.className = "complete-title-sub";
+        //creat button
+        const btnEl = document.createElement("button");
+        btnEl.innerText = "Continue"
+        btnEl.className = "btn-reset";
+        //append all to container and container to container b
+        containerElNew.appendChild(svgEl);
+        containerElNew.appendChild(titleEl);
+        containerElNew.appendChild(subTitleEl);
+        containerElNew.appendChild(btnEl);
+        containerEl.appendChild(containerElNew);
+
+        btnEl.addEventListener("click",this.resetPage);
+    }
+
+    resetPage = (): void => {
+        window.location.reload();
+    }
+
+
 
 }
 

@@ -62,7 +62,7 @@
 
       <div class="input-item">
         <label for="ccn">CARD NUMBER:</label>
-        <input id="ccn-in" name="ccn" type="number" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
+        <input id="ccn-in" name="ccn" type="text" autocomplete="cc-number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
         <p id="num-err" class="error"></p>
       </div>
 
@@ -76,14 +76,14 @@
           </div>
 
           <div class="input-container">
-            <input id="month-in" type="number" inputmode="numeric"  autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
-            <input id="year-in" type="number" inputmode="numeric"  autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
-            <input id="cvc-in" type="number" inputmode="numeric"  autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
+            <input id="month-in" type="text" autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
+            <input id="year-in" type="text" autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
+            <input id="cvc-in" type="text" autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
           </div>
 
           <div class="error-container">
             <p id="exp-err" class="error"></p>
-            <p id="exp-err" class="error"></p>
+            <p id="cvc-err" class="error"></p>
           </div>
         </div>
 
