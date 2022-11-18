@@ -13,79 +13,80 @@
 
 </head>
 <body>
+  <main>
+    <section class="container-a">
 
-  <div class="container-a">
-
-    <div class="card-back">
-      <p id="card-cvc">000</p>
-    </div>
-
-    <div class="card-front">
-
-      <div class="card-logo">
-        <img src="./card-logo.svg">
+      <div class="card-back">
+        <p id="card-cvc">000</p>
       </div>
-
-      <div class="card-num">
-        <p id="card-num">0000 0000 0000 0000</p>
-      </div>
-
-      <div class="card-info">
-        <p id="card-name" class="card-name">JANE APPLESEED</p>
-        <p id="card-month">00</p>
-        <p>/</p>
-        <p id="card-year">00</p>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="container-b">
-
-    <form id="card-form">
-
-      <div class="input-item">
-        <label for="name">CARDHOLDER NAME</label>
-        <input type="text" id="name-in" name="name" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
-        <p id="name-err" class="error"></p>
-      </div>
-
-      <div class="input-item">
-        <label for="ccn">CARD NUMBER:</label>
-        <input id="ccn-in" name="ccn" type="text" autocomplete="cc-number" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
-        <p id="num-err" class="error"></p>
-      </div>
-
-      <div> 
-
-        <div class="input-items-multiple">
-
-          <div class="label-container">
-            <label class="exp-label" for="month">EXP. DATE (MM/YY)</label>
-            <label class="cvc-label" for="cvc">CVC</label>
-          </div>
-
-          <div class="input-container">
-            <input id="month-in" type="text" autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
-            <input id="year-in" type="text" autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
-            <input id="cvc-in" type="text" autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
-          </div>
-
-          <div class="error-container">
-            <p id="exp-err" class="error"></p>
-            <p id="cvc-err" class="error"></p>
-          </div>
+  
+      <div class="card-front">
+  
+        <div class="card-logo">
+          <img src="./card-logo.svg" alt="" aria-hidden="true">
         </div>
-
+  
+        <div class="card-num">
+          <p id="card-num">0000 0000 0000 0000</p>
+        </div>
+  
+        <div class="card-info">
+          <p id="card-name" class="card-name">JANE APPLESEED</p>
+          <p id="card-month">00</p>
+          <p>/</p>
+          <p id="card-year">00</p>
+        </div>
+  
       </div>
-
-      <div class="btn-bg">
-        <button id="submit">Confirm</button>
-      </div>
-
-
-    </form>
-  </div>
+  
+    </section>
+  
+    <section class="container-b">
+  
+      <form id="card-form">
+  
+        <div class="input-item">
+          <label for="name-in">CARDHOLDER NAME</label>
+          <input type="text" id="name-in" name="name-in" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+          <p id="name-err" class="error"></p>
+        </div>
+  
+        <div class="input-item">
+          <label for="ccn-in">CARD NUMBER:</label>
+          <input id="ccn-in" name="ccn-in" type="text" autocomplete="cc-number" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
+          <p id="num-err" class="error"></p>
+        </div>
+  
+        <div> 
+  
+          <div class="input-items-multiple">
+  
+            <div class="label-container">
+              <label class="exp-label" for="month-in">EXP. DATE (MM/YY)</label>
+              <label class="cvc-label" for="cvc-in">CVC</label>
+            </div>
+  
+            <div class="input-container">
+              <input id="month-in" name="month=in" type="text" autocomplete="cc-exp-month" maxlength="2" placeholder="MM">
+              <input id="year-in" name="year-in" type="text" autocomplete="cc-exp-year" maxlength="2" placeholder="YY">
+              <input id="cvc-in" name="cvc-in" type="text" autocomplete="cc-csc" maxlength="4" placeholder="e.g. 123">
+            </div>
+  
+            <div class="error-container">
+              <p id="exp-err" class="error"></p>
+              <p id="cvc-err" class="error"></p>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="btn-bg">
+          <button id="submit">Confirm</button>
+        </div>
+  
+      </form>
+      
+    </section>
+  </main>
 </body>
 </html>

@@ -178,6 +178,8 @@ class PaymentInfo {
         //create Svg
         const svgEl = document.createElement("img");
         svgEl.src = Icon;
+        svgEl.alt = "";
+        svgEl.ariaHidden= "true";
         //create h1
         const titleEl = document.createElement("h1");
         titleEl.innerText = "THANK YOU!"
