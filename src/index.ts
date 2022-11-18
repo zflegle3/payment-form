@@ -1,5 +1,6 @@
+import './reset.css';
 import './style.css';
-
+import gsap from "gsap";
 import Icon from './images/icon-complete.svg';
 
 class PaymentInfo {
@@ -26,12 +27,13 @@ class PaymentInfo {
                 }
               break;
             case "ccn-in":
-                this.ccn = inVal;
-                if (inVal.length < 1) {
+                let ccnNew = inVal.replace(/\s/g, '');
+                this.ccn = this.formatNum(ccnNew);
+                if (ccnNew.length < 1) {
                     document.getElementById("card-num").innerText = "0000 0000 0000 0000";
-                } else if (inVal.length < 17)  {
-                    let numOut = this.formatNum(this.ccn);
-                    document.getElementById("card-num").innerText = numOut;
+                } else if (ccnNew.length < 20)  {
+                    document.getElementById("card-num").innerText = this.ccn;
+                    (<HTMLInputElement>document.getElementById("ccn-in")).value = this.ccn;
                 }
               break;
             case "month-in":
@@ -63,6 +65,7 @@ class PaymentInfo {
     }
 
     formatNum = (inputNum: any): any => {
+        if (inputNum.length < 1) return "";
         let outSegments = inputNum.match(/.{1,4}/g);
         let outNum = outSegments.join(" ");
         return outNum;
@@ -70,20 +73,14 @@ class PaymentInfo {
 
     submitInfo = (e: any): void => {
         e.preventDefault();
-        console.log(e);
-
         let nameValid = this.validateName(this.name);
         let numValid = this.validateNum(this.ccn);
         let monthValid = this.validateMonth(this.expMo);
         let dateValid = this.validateYear(this.expYr);
         let cvcValid = this.validateCvc(this.cvc);
-
         if (nameValid && numValid && monthValid && dateValid && cvcValid) {
-            console.log("ALL VALID UPDATE DOM");
             this.updateDom();
-        } else {
-            console.log("INVALID INPUTS");
-        }
+        } 
     }
 
     validateName = (name: string): boolean => {
@@ -99,8 +96,9 @@ class PaymentInfo {
     }
 
     validateNum = (num: string): boolean => {
-        if (num.length > 0) {
-            if (num.match(/^[0-9]*$/)) {
+        let testNum = num.replace(/\s/g, '');
+        if (testNum.length > 0) {
+            if (testNum.match(/^[0-9]*$/)) {
                 document.getElementById("num-err").innerText = "";
                 document.getElementById("ccn-in").classList.remove("invalid");
                 return true;
@@ -123,7 +121,7 @@ class PaymentInfo {
                 document.getElementById("month-in").classList.remove("invalid");
                 return true;
             } else {
-                document.getElementById("num-err").innerText = "Wrong format, numbers only";
+                document.getElementById("exp-err").innerText = "Wrong format, numbers only";
                 document.getElementById("month-in").classList.add("invalid");
                 return false
             }
@@ -137,11 +135,10 @@ class PaymentInfo {
     validateYear = (year: string,): boolean => {
         if (year.length > 0) {
             if (year.match(/^[0-9]*$/)) {
-                document.getElementById("exp-err").innerText = "";
                 document.getElementById("year-in").classList.remove("invalid");
                 return true;
             } else {
-                document.getElementById("num-err").innerText = "Wrong format, numbers only";
+                document.getElementById("exp-err").innerText = "Wrong format, numbers only";
                 document.getElementById("year-in").classList.add("invalid");
                 return false
             }
@@ -175,7 +172,7 @@ class PaymentInfo {
         document.getElementById("card-form").remove();
         //get container b
         let containerEl = document.querySelector(".container-b");
-        //create container
+        //create new container
         const containerElNew = document.createElement("div");
         containerElNew.className = "container-complete";
         //create Svg
@@ -185,12 +182,13 @@ class PaymentInfo {
         const titleEl = document.createElement("h1");
         titleEl.innerText = "THANK YOU!"
         titleEl.className = "complete-title";
-        console.log(titleEl);
         //create p
         const subTitleEl = document.createElement("p");
         subTitleEl.innerText = "We've added your card details"
         subTitleEl.className = "complete-title-sub";
-        //creat button
+        //create button
+        const btnBg = document.createElement("div");
+        btnBg.className = "btn-bg-reset"
         const btnEl = document.createElement("button");
         btnEl.innerText = "Continue"
         btnEl.className = "btn-reset";
@@ -198,20 +196,33 @@ class PaymentInfo {
         containerElNew.appendChild(svgEl);
         containerElNew.appendChild(titleEl);
         containerElNew.appendChild(subTitleEl);
-        containerElNew.appendChild(btnEl);
+        btnBg.appendChild(btnEl);
+        containerElNew.appendChild(btnBg);
         containerEl.appendChild(containerElNew);
-
+        //animate added elements & add btn functionality
+        this.fadeIn();
         btnEl.addEventListener("click",this.resetPage);
+    }
+
+    fadeIn = (): void => {
+        gsap.to(".container-complete", {
+            y: 0, 
+            opacity: 1,
+            duration: 1,
+            delay: 0,
+        });
+        gsap.to(".btn-bg-reset", {
+            opacity: 1,
+            duration: 0.5,
+            delay: 1,
+
+        });
     }
 
     resetPage = (): void => {
         window.location.reload();
     }
-
-
-
 }
-
 
 //Initialize Card Object
 const paymentNew = new PaymentInfo;
@@ -220,7 +231,7 @@ const paymentNew = new PaymentInfo;
 const submit = document.getElementById("submit")
 submit.addEventListener("click",paymentNew.submitInfo);
 
-//Input Event Listener
+//Input Event Listeners
 const nameIn = document.getElementById("name-in");
 nameIn.addEventListener("input",paymentNew.updateVal);
 
@@ -235,4 +246,3 @@ yearIn.addEventListener("input",paymentNew.updateVal);
 
 const cvcIn = document.getElementById("cvc-in");
 cvcIn.addEventListener("input",paymentNew.updateVal);
-

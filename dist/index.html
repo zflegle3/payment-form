@@ -3,22 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="../src/images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-
+  <title>Payment Center | Interactive payment details form</title>
+  <meta name="description" content="Front End Mentor Challenge">
   <script src="bundle.js" defer></script>
+
 </head>
 <body>
 
@@ -29,29 +21,28 @@
     </div>
 
     <div class="card-front">
+
       <div class="card-logo">
-        <svg width="84" height="47" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff"/>
-          <path d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z" stroke="#fff"/>
-        </svg>
+        <img src="../src/images/card-logo.svg">
       </div>
+
       <div class="card-num">
         <p id="card-num">0000 0000 0000 0000</p>
-        <!-- <p>0000</p>
-        <p>6389</p>
-        <p>1011</p> -->
       </div>
+
       <div class="card-info">
         <p id="card-name" class="card-name">JANE APPLESEED</p>
         <p id="card-month">00</p>
         <p>/</p>
         <p id="card-year">00</p>
       </div>
+
     </div>
 
   </div>
 
   <div class="container-b">
+
     <form id="card-form">
 
       <div class="input-item">
@@ -62,7 +53,7 @@
 
       <div class="input-item">
         <label for="ccn">CARD NUMBER:</label>
-        <input id="ccn-in" name="ccn" type="text" autocomplete="cc-number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
+        <input id="ccn-in" name="ccn" type="text" autocomplete="cc-number" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
         <p id="num-err" class="error"></p>
       </div>
 
@@ -89,7 +80,10 @@
 
       </div>
 
-      <button id="submit">Confirm</button>
+      <div class="btn-bg">
+        <button id="submit">Confirm</button>
+      </div>
+
 
     </form>
   </div>
